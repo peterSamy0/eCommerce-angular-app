@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row my-5">
+        <div class="col-6  ">
+            <img [src]="product.images[0]" alt="" class="border object-fit-cover ">
+        </div>
+        <div class="col-6">
+            <h3>{{product.title}}</h3>
+            <p><span class="text-success fw-bolder">Category: </span> {{product.category}}.</p>
+            <p><span class="text-success fw-bolder">Brand: </span> {{product.brand}}.</p>
+            <p><span class="text-success fw-bolder">Price: </span>{{product.price}}$</p>
+            <p><span class="text-success fw-bolder">Rating: </span>{{product.rating}}</p>
+            <p><span class="text-success fw-bolder d-block ">Deescription: </span>{{product.description}}.</p>
+            <p><span class="text-success fw-bolder">Discount: </span>{{product.discountPercentage}}%</p>
+        </div>
+    </div>
+</div>

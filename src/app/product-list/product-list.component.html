@@ -1,0 +1,10 @@
+<div class="container mt-5 position-relative">
+    <div class="position-fixed top-1 z-2 bg-secondary rounded-3 end-0 cursor text-light " (click)="redirectToDetailCart()">
+        <p class="m-0 fs-2 fw-bold ">Card</p>
+    </div>
+    <div class="row" >
+        <div class="col-lg-4" *ngFor="let product of products">
+            <app-product-card [product]="product"></app-product-card>
+        </div>
+    </div>
+</div>
