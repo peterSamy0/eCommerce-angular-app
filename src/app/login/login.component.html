@@ -1,1 +1,31 @@
-<p>login works!</p>
+<div class="w-75 m-auto">
+  <h3 class="text-center my-5">login page</h3>
+  <form class="bg-gray border-black px-5 py-3 rounded" [formGroup]="loginForm" (ngSubmit)="loginFormControl">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input [ngStyle]="{'border-color': isEmailEmptyInput === true? 'red' : '' }" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" formControlName="email">
+      <!-- handling errors for email address -->
+      <div *ngIf="loginForm.controls['email'].touched || isEmailEmptyInput || isPasswdEmptyInput">
+        <small class="text-danger" *ngIf="loginForm.controls['email'].errors?.['required']">
+          email is required
+        </small>
+        <small class="text-danger" *ngIf="loginForm.controls['email'].errors?.['email']">
+          Invalid email syntax.
+        </small>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input [ngStyle]="{'border-color': isPasswdEmptyInput === true? 'red' : '' }" type="password" class="form-control" id="exampleInputPassword1" name="password" formControlName="password">
+      <!-- handling errors for user password -->
+      <div *ngIf="isEmailEmptyInput || isPasswdEmptyInput">
+        <small class="text-danger" *ngIf="loginForm.controls['password'].errors?.['required']">
+          Password is required
+        </small>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <p class="text-center my-5">do not have account? <a routerLink="../registeration">Register</a> </p>
+</div>

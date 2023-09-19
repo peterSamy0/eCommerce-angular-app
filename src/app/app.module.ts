@@ -7,10 +7,13 @@ import { LoginComponent } from './login/login.component';
 import { RegisterationComponent } from './registeration/registeration.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductCardComponent } from './product-card/product-card.component';
-import { AppRoutingModule } from './app-routing.module';
+import { CartComponent } from './cart/cart.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
-import { CartComponent } from './cart/cart.component';
+import { AppRoutingModule } from './app-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+// import { CounterComponent } from './counter/counter.component';
 
 @NgModule({
   declarations: [
@@ -22,11 +25,14 @@ import { CartComponent } from './cart/cart.component';
     ProductCardComponent,
     NotFoundComponent,
     ProductDetailsComponent,
-    CartComponent
+    CartComponent,
+    // CounterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

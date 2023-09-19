@@ -1,1 +1,90 @@
-<p>registeration works!</p>
+<div class="w-50 m-auto">
+    <h3 class="text-center my-5">login page</h3>
+    <form class="py-5 px-5 py-2 border-gray bg-gray rounded" [formGroup]="regForm" (ngSubmit)="RegisterFormControl">
+    <!-- name input -->
+    <div class="mb-3">
+        <label for="name" class="form-label">NAME</label>
+        <input [ngStyle]="{'border-color': isNameEmptyInput === true? 'red' : '' }" type="text" class="form-control" id="name" name="name" formControlName="name">
+        <!-- handling errors for email address -->
+        <div *ngIf="isNameEmptyInput">
+            <small class="text-danger" *ngIf="regForm.controls['name'].errors?.['required']">
+                name is required
+            </small>
+            <!-- <small class="text-danger" *ngIf="regForm.controls['name'].errors?.['email']">
+                Invalid email syntax.
+            </small> -->
+        </div>
+    </div>
+    <!-- email input -->
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input [ngStyle]="{'border-color': isEmailEmptyInput === true? 'red' : '' }" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" formControlName="email">
+        <!-- handling errors for email address -->
+        <div *ngIf="regForm.controls['email'].touched || isEmailEmptyInput || isPasswdEmptyInput">
+            <small class="text-danger" *ngIf="regForm.controls['email'].errors?.['required']">
+            email is required
+            </small>
+            <small class="text-danger" *ngIf="regForm.controls['email'].errors?.['email']">
+            Invalid email syntax.
+            </small>
+        </div>
+    </div>
+    <!-- user name input -->
+    <div class="mb-3">
+        <label for="userName" class="form-label">User Name</label>
+        <input [ngStyle]="{'border-color': isUserNameEmptyInput === true? 'red' : '' }" type="text" class="form-control" id="userName" name="userName" formControlName="userName">
+        <!-- handling errors for User Name -->
+        <div *ngIf="isUserNameEmptyInput">
+            <small class="text-danger" *ngIf="regForm.controls['userName'].errors?.['required']">
+            user name is required
+            </small>
+        </div> 
+        <div *ngIf="isUserNamePattern">
+            <small class="text-danger">
+                user name must have not spaces.
+            </small>
+        </div> 
+    </div>
+    <!-- password input -->
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input [ngStyle]="{'border-color': isPasswdEmptyInput === true? 'red' : '' }" type="password" class="form-control" id="password" name="password" formControlName="password">
+        <!-- handling errors for user password -->
+        <div *ngIf="isEmailEmptyInput || isPasswdEmptyInput">
+            <small class="text-danger" *ngIf="regForm.controls['password'].errors?.['required']">
+            Password is required
+            </small>
+        </div> 
+        <div *ngIf="!passValidation">
+            <small class="text-danger">
+                Passwords does not match, please Retry.
+            </small>
+        </div> 
+        <div *ngIf="isPasswdPattern">
+            <small class="text-danger">
+                password length must be at least 8 characters , contains at least one lowercase , one uppercase , at least one digit and special character.
+            </small>
+        </div>
+    </div>
+    <!-- confirm password input -->
+    <div class="mb-3">
+        <label for="confirmPassword" class="form-label">Confirm Password</label>
+        <input [ngStyle]="{'border-color': isConfPasswdEmptyInput === true? 'red' : '' }" type="password" class="form-control" id="confirmPassword" name="confirmPassword" formControlName="confirmPassword">
+        <!-- handling errors for confirm Password-->
+        <div *ngIf="isConfPasswdEmptyInput">
+            <small class="text-danger" *ngIf="regForm.controls['confirmPassword'].errors?.['required']">
+            Password is required
+            </small>
+        </div>
+        <div *ngIf="!passValidation">
+            <small class="text-danger">
+                Passwords does not match, please Retry.
+            </small>
+        </div>
+    </div>
+  
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+    <p class="text-center my-5">Already have account! <a routerLink="../login">Login</a> </p>
+  </div>
+  

@@ -1,13 +1,37 @@
-<div class="container mt-5 position-relative">
-    <div class="row" >
-        <div class="col-lg-4" *ngFor="let product of productOfCart">
-            <div class="card mb-5" style="width: 18rem;">
-                <img [src]="product.images[0]" class="card-img-top" [alt]="product.title">
-                <div class="card-body">
-                  <h5 class="card-title">{{product.title}}</h5>
-                  <p><span class="text-success fw-bolder">Price: </span>{{product.price}}$</p>
-                </div>
-            </div>
-        </div>
-    </div>
+
+<div class="w-75 m-auto ">
+  <h1>cart</h1>
+  <table class="table caption-top">
+    <caption>Cart Content</caption>
+    <thead>
+      <tr>
+        <th scope="col">Image</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Qountity</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of selectedItems">
+        <td>
+            <img [src]="product.images[0]" class="card-img-top" [alt]="product.title">
+        </td>
+        <td>
+            {{product.title}}
+        </td>
+        <td>
+            {{product.price | currency : 'EGP'}}
+        </td>
+        <td>
+            <button class="btn btn-success" (click)="inCreaseItem(product)">+</button>
+            {{count}}
+            <button class="btn btn-danger" (click)="deCreaseItem()">-</button>
+        </td>
+        <td>
+            <button class="btn btn-danger" (click)="removeItem(product)">Remove</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

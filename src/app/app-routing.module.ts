@@ -6,15 +6,18 @@ import { RegisterationComponent } from './registeration/registeration.component'
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CartComponent } from './cart/cart.component';
+// import { CounterComponent } from './counter/counter.component';
 
 const routes : Routes = [
   { 
     path: '', 
+    title: 'home page',
     redirectTo: 'products', 
     pathMatch: 'full'
    },
   {
     path: 'products',
+    title: 'products page',
     component: ProductListComponent
   },
   {
@@ -25,6 +28,10 @@ const routes : Routes = [
     path: 'registeration',
     component: RegisterationComponent
   },
+  // {
+  //   path: 'counter',
+  //   component: CounterComponent
+  // },
   {
     path: 'productDetails/:id',
     component: ProductDetailsComponent

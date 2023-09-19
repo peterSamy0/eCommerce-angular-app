@@ -1,0 +1,10 @@
+.active{
+    background-color: brown;
+}
+.bg-gray{
+    background-color: rgb(236, 236, 236);
+}
+.borderDanger {
+    border-color: red;
+    background-color: aqua;
+}

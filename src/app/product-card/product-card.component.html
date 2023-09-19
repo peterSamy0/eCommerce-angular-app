@@ -5,6 +5,7 @@
         {{ product.stock === 0 ? 'Out of Stock' : 'In Stock' }}
       </div>
       <h5 class="card-title">{{product.title}}</h5>
+      <p class="pt-1">{{ product.price.toString()  | currency:'EGP'}}</p>
       <a class="btn btn-primary" (click)="redirectToDetails(product.id)">Details</a>
       <a class="btn btn-primary ms-3" (click)="addToCart(product)">add to cart</a>
     </div>

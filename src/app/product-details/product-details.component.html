@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row my-5">
         <div class="col-6  ">
-            <img [src]="product.images[0]" alt="" class="border object-fit-cover ">
+            <img *ngIf="product?.images" [src]="product.images[0]" alt="" class="border object-fit-cover ">
         </div>
         <div class="col-6">
             <h3>{{product.title}}</h3>
