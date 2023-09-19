@@ -7,9 +7,14 @@ export class CartService {
   selectedItems: any[] = [];
 
   constructor() { }
-
   addItem(item: any) {
-    this.selectedItems.push(item);
+    const existingItem = this.selectedItems.find((selectedItem) => selectedItem.id === item.id);
+    if (existingItem) {
+      existingItem.quantity++;
+    } else {
+      item.quantity = 1;
+      this.selectedItems.push(item);
+    }
   }
 
   getSelectedItems() {
@@ -20,3 +25,5 @@ export class CartService {
     this.selectedItems = [];
   }
 }
+
+

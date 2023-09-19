@@ -25,8 +25,8 @@
         </td>
         <td>
             <button class="btn btn-success" (click)="inCreaseItem(product)">+</button>
-            {{count}}
-            <button class="btn btn-danger" (click)="deCreaseItem()">-</button>
+            {{product.quantity}}
+            <button class="btn btn-danger" (click)="deCreaseItem(product)">-</button>
         </td>
         <td>
             <button class="btn btn-danger" (click)="removeItem(product)">Remove</button>
@@ -34,4 +34,9 @@
       </tr>
     </tbody>
   </table>
+  <div >
+    <h2 class="text-end ">
+      Total: {{total | currency : 'EGP'}}
+    </h2>
+  </div>
 </div>

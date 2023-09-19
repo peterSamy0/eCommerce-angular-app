@@ -29,14 +29,9 @@ export class ProductCardComponent {
 
   addToCart(item: any) {
     if(this.count < item.stock){
-      if(this.selectedItem.find( (val:any) => item == val)){
-        this.counter.setCartValue(++this.count)
-        console.log(this.selectedItem)
-      }else{
-        this.cartService.addItem(item)
-        this.counter.setCartValue(++this.count)
-        console.log(this.selectedItem)
-      }
+      this.counter.setCartValue(++this.count)
+      console.log(this.selectedItem)
+      this.cartService.addItem(item)
     }
   }
 }
